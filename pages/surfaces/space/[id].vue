@@ -28,6 +28,9 @@
         </tr>
       </tbody>
     </table>
+    <button type="button" class="btn btn-info" @click="backToSpaces()">
+      Back
+    </button>
   </div>
 </template>
 
@@ -61,6 +64,10 @@ export default {
 
     async viewReports(surfaceId) {
       this.$router.push(`/reports/surface/${surfaceId}`);
+    },
+
+    async backToSpaces() {
+      this.$router.push(`/spaces`);
     },
   },
 };

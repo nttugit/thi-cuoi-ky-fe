@@ -27,21 +27,15 @@ export default {
   data() {
     return {
       form: {},
-      surfaceId: 0,
     };
   },
-  mounted() {
-    this.getSurfaceId();
-  },
-
+  mounted() {},
   methods: {
-    async getSurfaceId() {
-      const route = useRoute();
-      const surfaceId = route.params.id;
-      this.surfaceId = surfaceId;
-    },
     async handleSubmit(form, el$) {
       try {
+        const route = useRoute();
+        const surfaceId = route.params.id;
+        console.log(surfaceId);
         const formData = form;
         const submitData = {};
         formData.forEach((value, key) => {
@@ -49,16 +43,16 @@ export default {
         });
         console.log("submitData:", submitData);
 
-        const response = await axios.post(
-          `http://localhost:3000/reports/surface/${this.surfaceId}`,
-          submitData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(response.data);
+        // const response = await axios.post(
+        //   `http://localhost:3000/reports/surface/${surfaceId}`,
+        //   submitData,
+        //   {
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //   }
+        // );
+        // console.log(response.data);
 
         this.form = [];
         window.alert("Tao báo cáo thành công");
